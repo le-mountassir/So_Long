@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ahel-mou <ahel-mou@student-1337.ma>        +#+  +:+       +#+         #
+#    By: ahel-mou <ahel-mou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/16 10:17:43 by ahel-mou          #+#    #+#              #
-#    Updated: 2021/12/16 18:13:18 by ahel-mou         ###   ########.fr        #
+#    Updated: 2021/12/18 16:45:44 by ahel-mou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,19 +24,23 @@ LB_SRC = ./my_lib/libft/ft_atoi.c ./my_lib/libft/ft_bzero.c ./my_lib/libft/ft_me
 
 GNL_SRC = ./my_lib/gnl/get_next_line.c ./my_lib/gnl/get_next_line_utils.c
 
-# SL_SRC = so_long.c
+SL_SRC = 	./my_lib/sl_utils/read_map_fd.c\
+			./my_lib/sl_utils/replace_in_map.c\
+			./my_lib/sl_utils/movement.c\
+			./my_lib/sl_utils/directions.c
 
-# SL_OBJS = $(SL_SRC:.C=.o)
+sl_OBJS = $(SL_SRC:.c=.o)
 libft_OBJS = $(LB_SRC:.c=.o)
 gnl_OBJS = $(GNL_SRC:.c=.o)
 
-OBJ = $(gnl_OBJS) $(libft_OBJS)
+OBJ = $(gnl_OBJS) $(libft_OBJS) $(sl_OBJS)
 
 all: $(NAME)
 
 $(NAME) : $(OBJ)
-	@$(CC) -c $(FLAGS) $(GNL_SRC) $(LB_SRC) $(SL_OBJS)
+	@$(CC) -c $(FLAGS) $(GNL_SRC) $(LB_SRC) $(SL_SRC)
 	@ar -rcs $(NAME) $(OBJ)
+	$(CC) so_long.c -lmlx -framework OpenGL -framework AppKit $(NAME)
 
 clean:
 	find . -name "*.o" -delete

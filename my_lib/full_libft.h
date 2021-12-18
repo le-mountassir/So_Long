@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   full_libft.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahel-mou <ahel-mou@student-1337.ma>        +#+  +:+       +#+        */
+/*   By: ahel-mou <ahel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:37:42 by ahel-mou          #+#    #+#             */
-/*   Updated: 2021/12/16 18:12:57 by ahel-mou         ###   ########.fr       */
+/*   Updated: 2021/12/18 16:42:48 by ahel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,41 @@
 # include <stdio.h>
 
 //----------------------------------so_long
-// char		*read_map(char *path);
+typedef struct main_function
+{
+	void	*init;
+	void	*wind;
+	char	**td_map;
+	int		x_map;
+	int		y_map;
+	int		p_x;
+	int		p_y;
+	int		collect;
+	int		walls;
+}			t_unit;
+
+typedef	struct	movements
+{
+    char	*src;
+	char	*floor;
+	int		y_img;
+	int		x_img;
+	void	*img;
+	int		x;
+	int		y;
+}			t_move;
+
+char	**read_map_fd(char *file, int *y_map, int *x_map);
+void	replace_in_map(t_unit *vrs);
+int		movement(int key, t_unit *vr2);
+
+//====> Direction
+
+void	up(t_unit *vr3);
+void	down(t_unit *vr3);
+void	left(t_unit *vr3);
+void	right(t_unit *vr3);
+
 //----------------------------------Lib_ft
  
 char		*ft_strchr(const char *str, int c);

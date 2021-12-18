@@ -3,54 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahel-mou <ahel-mou@student-1337.ma>        +#+  +:+       +#+        */
+/*   By: ahel-mou <ahel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 11:47:19 by ahel-mou          #+#    #+#             */
-/*   Updated: 2021/12/16 17:37:26 by ahel-mou         ###   ########.fr       */
+/*   Updated: 2021/12/18 15:03:19 by ahel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./my_lib/full_libft.h"
+// w 13
+// s 1
+// a 0
+// d 2
+// sp 49
+// shift 257
 
-int event(int key, void *param)
+int	main(int c, char **v)
 {
-    // 13 move up
-    // 1 move down
-    // 0 move left
-    // 2 move right
-    // 49 space
-    // 257 shift-left
-    param = NULL;
-    printf("u pressed : %d\n", key);
-    return (0);
-}
+	t_unit	vr;
 
-int main(int c, char **v)
-{
-    void    *x_init;
-    void    *x_window;
-    char    *relative_path = "./assets/images/floor.xpm";
-    int     i_width;
-    int     i_height;
-    void    *img;
-
-    printf("%s\n", v[1]);
-    if (c == 2)
-    {
-        // read_map(v[1]);
-        x_init = mlx_init();
-        if (!x_init)
-            return (0);
-        x_window = mlx_new_window(x_init, 900, 500, "MineCrap");
-        if (!x_window)
-        {
-            free(x_window);
-            return (0);
-        }
-        img = mlx_xpm_file_to_image(x_init, relative_path, &i_width, &i_height);
-        mlx_put_image_to_window(x_init, x_window, img, 0, 0);
-
-        mlx_key_hook(x_window, event, NULL);
-        mlx_loop(x_init);
-    }
+	if (c == 2)
+	{
+		vr.td_map = read_map_fd(v[1], &vr.y_map, &vr.x_map);
+		vr.init = mlx_init();
+		if (!vr.init)
+			return (0);
+		vr.wind = mlx_new_window(vr.init, vr.x_map * 30, vr.y_map * 30, "MineCrap");
+		if (!vr.wind)
+		{
+			free(vr.wind);
+			return (0);
+		}
+		replace_in_map(&vr);
+		mlx_hook(vr.wind, 2, (1L<<0), movement, &vr);
+		mlx_loop(vr.init);
+	}
 }

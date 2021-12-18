@@ -6,12 +6,11 @@
 /*   By: ahel-mou <ahel-mou@student-1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 13:56:31 by ahel-mou          #+#    #+#             */
-/*   Updated: 2021/12/16 17:58:29 by ahel-mou         ###   ########.fr       */
+/*   Updated: 2021/12/17 18:02:49 by ahel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../full_libft.h"
-
 
 int	gnl_ft_strlen(char *cara)
 {
@@ -33,8 +32,8 @@ char	*gnl_ft_strjoin(char *s1, char *s2)
 	int		o_len;
 	int		d_len;
 
-	o_len = ft_strlen(s1);
-	d_len = ft_strlen(s2);
+	o_len = gnl_ft_strlen(s1);
+	d_len = gnl_ft_strlen(s2);
 	new = malloc((o_len + d_len + 1) * sizeof(char));
 	if (!new)
 		return (NULL);
@@ -46,7 +45,7 @@ char	*gnl_ft_strjoin(char *s1, char *s2)
 	while (j < d_len)
 		new[i++] = s2[j++];
 	new[i] = '\0';
-	free (s1);
+	free(s1);
 	return (new);
 }
 
