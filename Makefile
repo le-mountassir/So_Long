@@ -6,7 +6,7 @@
 #    By: ahel-mou <ahel-mou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/16 10:17:43 by ahel-mou          #+#    #+#              #
-#    Updated: 2021/12/18 16:45:44 by ahel-mou         ###   ########.fr        #
+#    Updated: 2021/12/18 17:30:26 by ahel-mou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ all: $(NAME)
 $(NAME) : $(OBJ)
 	@$(CC) -c $(FLAGS) $(GNL_SRC) $(LB_SRC) $(SL_SRC)
 	@ar -rcs $(NAME) $(OBJ)
-	$(CC) so_long.c -lmlx -framework OpenGL -framework AppKit $(NAME)
+	$(CC) so_long.c -lmlx -framework OpenGL -framework AppKit $(NAME) -o minecrap
 
 clean:
 	find . -name "*.o" -delete
