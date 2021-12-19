@@ -6,7 +6,7 @@
 /*   By: ahel-mou <ahel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:37:42 by ahel-mou          #+#    #+#             */
-/*   Updated: 2021/12/18 16:42:48 by ahel-mou         ###   ########.fr       */
+/*   Updated: 2021/12/18 17:49:40 by ahel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct main_function
 	int		p_y;
 	int		collect;
 	int		walls;
+	int		unlock;
 }			t_unit;
 
 typedef	struct	movements
