@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahel-mou <ahel-mou@student-1337.ma>        +#+  +:+       +#+        */
+/*   By: ahel-mou <ahel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 13:56:24 by ahel-mou          #+#    #+#             */
-/*   Updated: 2021/12/17 10:37:38 by ahel-mou         ###   ########.fr       */
+/*   Updated: 2021/12/19 14:12:30 by ahel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,11 @@ char	*assign_rest(char *stc_arr)
 		{
 			str = gnl_ft_substr(stc_arr, i + 1, gnl_ft_strlen(stc_arr));
 			free (stc_arr);
+			if (str[0] == '\n')
+			{
+				printf("new line in map\n");
+				exit(1);
+			}
 			return (str);
 		}
 		i++;
@@ -86,5 +91,6 @@ char	*get_next_line(int fd)
 	free(unit_1.buff);
 	unit_1.cur_line = extract_cur_line(stc_arr[fd]);
 	stc_arr[fd] = assign_rest(stc_arr[fd]);
+
 	return (unit_1.cur_line);
 }
