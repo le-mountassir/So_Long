@@ -6,7 +6,7 @@
 /*   By: ahel-mou <ahel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 17:38:52 by ahel-mou          #+#    #+#             */
-/*   Updated: 2021/12/18 15:02:25 by ahel-mou         ###   ########.fr       */
+/*   Updated: 2021/12/19 16:53:34 by ahel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,23 +57,19 @@ void	*wall_floor(char c, void *init)
 	return (img);
 }
 
-void	*check_char(char c, void *init)
+void	check_char(char c, t_unit *vr)
 {
-	void	*img;
-
-	img = NULL;
+	vr->img = NULL;
 	if (c == '0' || c == '1')
-		img = wall_floor(c, init);
+		vr->img = wall_floor(c, vr->init);
 	else if (c == 'C' || c == 'P' || c == 'E')
-		img = ex_car_col(c, init);
-	return (img);
+		vr->img = ex_car_col(c, vr->init);
 }
 
 void	replace_in_map(t_unit *vr2)
 {
 	int		i;
 	int		j;
-	void	*img;
 	
 	i = 0;
 	while (vr2->td_map[i])
@@ -81,8 +77,8 @@ void	replace_in_map(t_unit *vr2)
 		j = 0;
 		while (vr2->td_map[i][j])
 		{
-			img = check_char(vr2->td_map[i][j], vr2->init);
-			mlx_put_image_to_window(vr2->init, vr2->wind, img, j * 30, i * 30);
+			check_char(vr2->td_map[i][j], vr2);
+			mlx_put_image_to_window(vr2->init, vr2->wind, vr2->img, j * 30, i * 30);
 			if (vr2->td_map[i][j] == 'P')
 			{
 				vr2->p_x = j * 30;
