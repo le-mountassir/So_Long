@@ -6,7 +6,7 @@
 /*   By: ahel-mou <ahel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:37:42 by ahel-mou          #+#    #+#             */
-/*   Updated: 2021/12/18 17:49:40 by ahel-mou         ###   ########.fr       */
+/*   Updated: 2021/12/19 18:18:50 by ahel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct main_function
 {
 	void	*init;
 	void	*wind;
+	void	*img;
 	char	**td_map;
 	int		x_map;
 	int		y_map;
@@ -49,7 +50,9 @@ typedef	struct	movements
 char	**read_map_fd(char *file, int *y_map, int *x_map);
 void	replace_in_map(t_unit *vrs);
 int		movement(int key, t_unit *vr2);
-
+void	render_player(t_unit *vr3, t_move *mv);
+void    map_checker(char **map, int x, int y);
+int		free_game(t_unit *vr);
 //====> Direction
 
 void	up(t_unit *vr3);
