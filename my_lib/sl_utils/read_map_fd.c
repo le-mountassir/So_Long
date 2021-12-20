@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_map.c                                         :+:      :+:    :+:   */
+/*   read_map_fd.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahel-mou <ahel-mou@student-1337.ma>        +#+  +:+       +#+        */
+/*   By: ahel-mou <ahel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 15:49:06 by ahel-mou          #+#    #+#             */
-/*   Updated: 2021/12/17 17:54:54 by ahel-mou         ###   ########.fr       */
+/*   Updated: 2021/12/19 13:30:27 by ahel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ char	**read_map_fd(char *file, int *y_map, int *x_map)
 	}
 	td_map = ft_split(map, '\n');
 	*x_map = gnl_ft_strlen(td_map[0]);
+	map_checker(td_map, *x_map, *y_map);
 	return (td_map);
 }
