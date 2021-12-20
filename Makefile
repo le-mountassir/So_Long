@@ -6,7 +6,7 @@
 #    By: ahel-mou <ahel-mou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/16 10:17:43 by ahel-mou          #+#    #+#              #
-#    Updated: 2021/12/18 17:30:26 by ahel-mou         ###   ########.fr        #
+#    Updated: 2021/12/19 13:31:01 by ahel-mou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,9 @@ GNL_SRC = ./my_lib/gnl/get_next_line.c ./my_lib/gnl/get_next_line_utils.c
 SL_SRC = 	./my_lib/sl_utils/read_map_fd.c\
 			./my_lib/sl_utils/replace_in_map.c\
 			./my_lib/sl_utils/movement.c\
-			./my_lib/sl_utils/directions.c
+			./my_lib/sl_utils/directions.c\
+			./my_lib/sl_utils/render_player.c\
+			./my_lib/sl_utils/map_checker.c
 
 sl_OBJS = $(SL_SRC:.c=.o)
 libft_OBJS = $(LB_SRC:.c=.o)
