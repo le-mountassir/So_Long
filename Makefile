@@ -6,7 +6,7 @@
 #    By: ahel-mou <ahel-mou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/16 10:17:43 by ahel-mou          #+#    #+#              #
-#    Updated: 2021/12/19 13:31:01 by ahel-mou         ###   ########.fr        #
+#    Updated: 2021/12/20 15:06:46 by ahel-mou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,10 @@ CC = gcc
 
 FLAGS = -Wall -Werror -Wextra
 
-LB_SRC = ./my_lib/libft/ft_atoi.c ./my_lib/libft/ft_bzero.c ./my_lib/libft/ft_memcpy.c ./my_lib/libft/ft_memchr.c ./my_lib/libft/ft_memmove.c ./my_lib/libft/ft_memset.c ./my_lib/libft/ft_memcmp.c\
+LB_SRC = ./my_lib/libft/ft_bzero.c ./my_lib/libft/ft_memcpy.c ./my_lib/libft/ft_memchr.c ./my_lib/libft/ft_memmove.c ./my_lib/libft/ft_memset.c ./my_lib/libft/ft_memcmp.c\
 	./my_lib/libft/ft_strchr.c ./my_lib/libft/ft_strrchr.c ./my_lib/libft/ft_strdup.c ./my_lib/libft/ft_strlcat.c ./my_lib/libft/ft_strlcpy.c ./my_lib/libft/ft_strlen.c ./my_lib/libft/ft_strncmp.c ./my_lib/libft/ft_strrchr.c\
 	./my_lib/libft/ft_strnstr.c ./my_lib/libft/ft_substr.c ./my_lib/libft/ft_strjoin.c ./my_lib/libft/ft_calloc.c ./my_lib/libft/ft_strtrim.c ./my_lib/libft/ft_split.c\
-	./my_lib/libft/ft_itoa.c ./my_lib/libft/ft_strrev.c ./my_lib/libft/ft_strmapi.c ./my_lib/libft/ft_striteri.c
+	./my_lib/libft/ft_strrev.c ./my_lib/libft/ft_strmapi.c ./my_lib/libft/ft_striteri.c
 
 
 GNL_SRC = ./my_lib/gnl/get_next_line.c ./my_lib/gnl/get_next_line_utils.c
@@ -29,7 +29,8 @@ SL_SRC = 	./my_lib/sl_utils/read_map_fd.c\
 			./my_lib/sl_utils/movement.c\
 			./my_lib/sl_utils/directions.c\
 			./my_lib/sl_utils/render_player.c\
-			./my_lib/sl_utils/map_checker.c
+			./my_lib/sl_utils/map_checker.c\
+			./my_lib/sl_utils/enemy_anim.c
 
 sl_OBJS = $(SL_SRC:.c=.o)
 libft_OBJS = $(LB_SRC:.c=.o)
