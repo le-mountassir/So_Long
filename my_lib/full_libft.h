@@ -6,7 +6,7 @@
 /*   By: ahel-mou <ahel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 10:37:42 by ahel-mou          #+#    #+#             */
-/*   Updated: 2021/12/19 18:18:50 by ahel-mou         ###   ########.fr       */
+/*   Updated: 2021/12/20 15:33:34 by ahel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,12 @@ typedef	struct	movements
 }			t_move;
 
 char	**read_map_fd(char *file, int *y_map, int *x_map);
-void	replace_in_map(t_unit *vrs);
+int		replace_in_map(t_unit *vrs);
 int		movement(int key, t_unit *vr2);
 void	render_player(t_unit *vr3, t_move *mv);
 void    map_checker(char **map, int x, int y);
 int		free_game(t_unit *vr);
+// int		enemy_anim(t_unit *vr);
 //====> Direction
 
 void	up(t_unit *vr3);
@@ -75,14 +76,12 @@ void		*ft_memcpy(void *dest, const void *src, size_t n);
 int			ft_memcmp(const void *s1, const void *s2, size_t n);
 void		*ft_bzero(void *s, size_t n);
 char		*ft_strrchr(const char *s, int c);
-int			ft_atoi(const char *str);
 void		*ft_calloc(size_t count, size_t size);
 char		*ft_strdup(const char *s1);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		*ft_strjoin(char const *s1, char const *s2);
 char		*ft_strtrim(char const *s1, char const *set);
 char		**ft_split(char const *str, char c);
-char		*ft_itoa(int n);
 char		*ft_strrev(char *add_func);
 char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void		ft_striteri(char *s, void (*f)(unsigned int, char*));
