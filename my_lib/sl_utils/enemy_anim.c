@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render_player.c                                    :+:      :+:    :+:   */
+/*   enemy_anim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahel-mou <ahel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/19 11:58:15 by ahel-mou          #+#    #+#             */
-/*   Updated: 2021/12/20 17:50:15 by ahel-mou         ###   ########.fr       */
+/*   Created: 2021/12/20 14:57:48 by ahel-mou          #+#    #+#             */
+/*   Updated: 2021/12/20 15:25:08 by ahel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../full_libft.h"
 
-void	render_player(t_unit *vr3, t_move *mv)
+int		enemy_anim(t_unit *vr2)
 {
-	static int	num_of_mv;
+	t_move	t;
 	
-	mv->floor = "./src/images/floor.xpm";
-	mlx_put_image_to_window(vr3->init, vr3->wind, vr3->img, vr3->p_x, vr3->p_y);
-	vr3->img = mlx_xpm_file_to_image(vr3->init, mv->floor, &mv->x_img, &mv->y_img);
-	mlx_put_image_to_window(vr3->init, vr3->wind, vr3->img, mv->x, mv->y);
-	num_of_mv += 1;
-	printf("%d\n", num_of_mv);
+	t.x = 0;
+	while (vr2->td_map[t.x])
+	{
+		t.y = 0;
+		while (vr2->td_map[t.x][t.x])
+		{
+			if (vr2->td_map[t.x][t.x] == 'X')
+			{
+				t.floor = "./src/images/enemy1.xpm";
+				t.img = mlx_xpm_file_to_image(vr2->init, t.floor, &t.x_img, &t.y_img);
+				mlx_put_image_to_window(vr2->init, vr2->wind, t.img, t.y * 30, t.x * 30);
+			}
+			t.y++;
+		}	
+		t.x++;
+	}
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: ahel-mou <ahel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 14:02:20 by ahel-mou          #+#    #+#             */
-/*   Updated: 2021/12/19 18:16:25 by ahel-mou         ###   ########.fr       */
+/*   Updated: 2021/12/20 17:50:36 by ahel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void check_C_or_E(int x, int y, t_unit *vars)
 	if (i == vars->collect)
 		vars->unlock = 1;
 	if (vars->td_map[y][x] == 'E' && vars->unlock)
-		exit(1);
+		free_game(vars);
 }
 int	movement(int key, t_unit *vr2)
 {

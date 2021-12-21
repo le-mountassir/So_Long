@@ -6,7 +6,7 @@
 /*   By: ahel-mou <ahel-mou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 11:47:19 by ahel-mou          #+#    #+#             */
-/*   Updated: 2021/12/19 18:17:45 by ahel-mou         ###   ########.fr       */
+/*   Updated: 2021/12/20 18:43:00 by ahel-mou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ int	main(int c, char **v)
 		vr.wind = mlx_new_window(vr.init, vr.x_map * 30, vr.y_map * 30, "MineCrap");
 		if (!vr.wind)
 			free_game(&vr);
-		replace_in_map(&vr);
 		mlx_hook(vr.wind, 2, (1L<<0), movement, &vr);
 		mlx_hook(vr.wind, 17, (1L<<2), free_game, &vr);
+		mlx_loop_hook(vr.init, replace_in_map, &vr);
 		mlx_loop(vr.init);
 	}
 }
